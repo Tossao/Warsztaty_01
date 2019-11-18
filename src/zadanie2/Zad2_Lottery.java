@@ -1,70 +1,97 @@
-//package src.zadanie2;
-//
-//import java.util.ArrayList;
-//import java.util.Random;
-//import java.util.Scanner;
-//
-///*
-//pierwsza metoda pobierze dane od uzytkownika
-//6 liczb bez powtorzen
-//scanner do wprowadzania liczb
-//
-//do while az tablica bedzie miala 6 elementow
-//counter elementow ktory zwiekszamy tylko gdy dodamy element do tablicy
-//spr czy wprowadzone dane to liczba
-//spr czy liczba jest z danego zakresu && wprowadzone dane nie sa juz w tablicy
-//jesli poprawne to dodaj do tablicy[counter]
-//konczymy gdy counter jest 6
-//
-//sortujemy typy uzytkownika
-//druga metoda to getRandomNumbers
-//wykona to ze slajdu
-//pobierze pierwszych 6 elementow z pomieszanej kolekcji i zwroci metody
-//sortujemy wyniki
-//mamy dwie petle - osobna metoda!! - ktore sprawdza czy trafilismy conajmniej trojke jesli trafilismy z numerem
-//to do licznika trafien dodaj +1
-// */
-//public class zadanie2 {
-//    public static void main(String[] args) {
-//        Random random = new Random();
-//        int minRand = 1 ;
-//        int maxRand = 49;
-//
-//        ArrayList<String> lottoNumber = new ArrayList<>();
-//        String userNumber = "";
-//
-//        System.out.println("Wytypuj 6 liczb od 1 do 49: ");
-//        Scanner scanner = new Scanner(System.in);
-//
-//        for ( int i = 0; i<6; i++) {
-//            userNumber = scanner.next();
-//            lottoNumber.add(userNumber);
-//        }
-//        scanner.close();
-//
-//        int counter = 0;
-//        ArrayList<Integer> randomNumberList = new ArrayList<>();
-//        Integer wylosowana = random.nextInt((maxRand - minRand)+1)+minRand;
-//        randomNumberList.add(wylosowana);
-//
-//        for(int i = 0; i<5; i++){
-//            do {
-//                wylosowana = random.nextInt((maxRand-minRand)+1)+minRand;
-//            } while (randomNumberList.contains(wylosowana))
-//                randomNumberList.add(wylosowana);
-//                System.out.println(wylosowana);
-//            }
-//
-//        for ( int i = 0; i< randomNumberList.size(); i++){
-//            for ( int j = 0; j < randomNumberList(); j++) {
-//
-//            }
-//        }
-//
-//
-//        }
-//
-//
-//    }
-//
-//}
+package src.zadanie2;
+
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Zad2_Lottery {
+
+    static Scanner scanner;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        lotto();
+        scanner.close();
+    }
+
+    static void lotto() {
+        Random random = new Random();
+        int[] winNumbers = new int[6];
+        for (int i = 0; i < 6; i++) {
+            int number = random.nextInt(49) + 1;
+            winNumbers[i] = number;
+        }
+        Arrays.sort(winNumbers);
+
+        for (int i = 0; i < 5; i++) {
+            while (true) {
+                if (winNumbers[i] == winNumbers[i + 1]) {
+                    int number = random.nextInt(49) + 1;
+                    winNumbers[i] = number;
+                    Arrays.sort(winNumbers);
+                    i = 0;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        int[] choice = getNumbers();
+        int counter = 0;
+        System.out.println("Maszyna losująca wylosowała liczby: " + Arrays.toString(winNumbers));
+        for (int i = 0; i < 6; i++) {
+            if (winNumbers[i] == choice[i]) {
+                counter++;
+            }
+        }
+        if (counter == 3) {
+            System.out.println("Trafiłeś trójke!!!");
+        } else if (counter == 4) {
+            System.out.println("Trafiles czwórke!!!!");
+        } else if (counter == 5) {
+            System.out.println("Trafiles piątkę!!!!!");
+        } else if (counter == 6) {
+            System.out.println("Trafiłeś szóstkę!!!!!!");
+        } else {
+            System.out.println("Brak wygranej :(  Graj dalej!!!");
+        }
+    }
+
+    static int[] getNumbers() {
+        System.out.println("Podaj swoje szczęsliwe liczby: ");
+        int[] luckyNumbers = new int[6];
+        int count;
+        for (int i = 0; i < 6; i++) {
+            int n;
+            while (true) {
+                while (!scanner.hasNextInt()) {
+                    System.out.println("To nie jest liczba!!!");
+                    scanner.next();
+                }
+                n = scanner.nextInt();
+                count = 0;
+                for (int j = 0; j < i; j++) {
+                    if (n == luckyNumbers[j]) {
+                        count++;
+                    }
+                }
+                if ((n < 1) || (n > 49)) {
+                    System.out.println("Liczby z poza zakresu!!!");
+                    scanner.nextLine();
+                } else if (count > 0) {
+                    System.out.println("Ta liczba juz zostala podana!!! Podaj inna liczbę...");
+                    scanner.nextLine();
+                } else {
+                    luckyNumbers[i] = n;
+                    break;
+                }
+            }
+            System.out.println("Podałes: " + n);
+            scanner.nextLine();
+        }
+        Arrays.sort(luckyNumbers);
+        System.out.println("Twoje liczby to: " + Arrays.toString(luckyNumbers));
+        return luckyNumbers;
+    }
+}
+
