@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class zadanie5 {
+public class WordsSearch {
     public static void main(String[] args) {
         mostPopularWords();
     }
