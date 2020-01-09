@@ -1,5 +1,10 @@
 # Warsztaty_01
 Warsztaty I - JAVA Podstawy
+1. Gra w zgadywanie liczb
+2. Symulator Lotto 
+3. Gra w zgadywanie liczb 2
+4. Kostka do gry
+5. Wyszukiwarka najpopularniejszych wyrazów
 
 <h3>Gra w zgadywanie liczb</h3>
 Napisz prostą grę w zgadywanie liczb. Komputer ma wylosować liczbę w zakresie od 1 do 100. Następnie:
