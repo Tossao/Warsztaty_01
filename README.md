@@ -7,7 +7,7 @@ Warsztaty I - JAVA Podstawy
 5. Wyszukiwarka najpopularniejszych wyrazów
 <hr>
 
-<h3>Gra w zgadywanie liczb</h3>
+<h3>Zadanie 1.Gra w zgadywanie liczb</h3>
 Napisz prostą grę w zgadywanie liczb. Komputer ma wylosować liczbę w zakresie od 1 do 100. Następnie:
 
 wypisać: "Zgadnij liczbę" i pobrać liczbę z klawiatury;
@@ -39,7 +39,7 @@ Zgadnij liczbę: 63
 Zgadłeś!
 
 <br>
-<h3>Symulator LOTTO</h3>
+<h3>Zadanie 2.Symulator LOTTO</h3>
 Jak wszystkim wiadomo, LOTTO to gra liczbowa polegająca na losowaniu 6 liczb z zakresu od 1 do 49. Zadaniem gracza jest poprawne wytypowanie losowanych liczb. Nagradzane jest trafienie 3, 4, 5 lub 6 poprawnych liczb.
 
 Napisz program, który:
@@ -82,7 +82,7 @@ snippetach jak to wykonać) – jeżeli wybierzesz takie rozwiązanie, pamiętaj
 wartość nie została wcześniej wylosowana.
 
 <br>
-<h3>Gra w zgadywanie liczb 2</h3>
+<h3>Zadanie 3.Gra w zgadywanie liczb 2</h3>
 
 Odwróćmy teraz sytuację z warsztatu "Gra w zgadywanie liczb": to użytkownik pomyśli sobie liczbę z
 zakresu 1-1000, a komputer będzie zgadywał i zrobi to maksymalnie w 10 ruchach (pod warunkiem,
@@ -102,7 +102,7 @@ Dostępny jest także pod adresem: https://gist.github.com/arek-jozwiak-codersla
 Zaimplementuj go w Javie.
 
 <br>
-<h3>Kostka do gry </h3>
+<h3>Zadanie 4.Kostka do gry </h3>
 
 W grach planszowych i papierowych RPG używa się wielu rodzajów kostek do gry, nie tylko tych
 dobrze znanych, sześciennych. Jedną z popularniejszych kości jest np. kostka dziesięciościenna, a
@@ -160,7 +160,7 @@ D3, D4, D6, D8, D10, D12, D20, D100.
 
 
 <br>
-<h3>Wyszukiwarka najpopularniejszych wyrazów </h3>
+<h3>Zadanie 5.Wyszukiwarka najpopularniejszych wyrazów </h3>
 
 Zaimportuj do projektu bibliotekę jsoup, możesz ją pobrać z adresu: https://jsoup.org/download
 
